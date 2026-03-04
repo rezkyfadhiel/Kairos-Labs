@@ -18,4 +18,4 @@ qsearch = Grover(num_qubits=5)
 result = qsearch.execute()
 
 # Solana
-launch_token(name="QuantumToken", symbol="QNT")
+launch_token(name="KairosLabs", symbol="Kairos")
