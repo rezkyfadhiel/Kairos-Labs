@@ -1,6 +1,21 @@
-# Kairos-Labs
-A highly intelligent AI agent with expert-level knowledge of quantum mechanics and quantum computing. It deeply understands superposition, entanglement, quantum algorithms (Shor, Grover, VQE, QAOA, etc.), noise models, error correction, fault tolerance, and variational quantum circuits.
+# Kairos Labs ($KAIROS)
 
-Link to Kairos Labs https://agentinc.fun/agent/AjuVzYnff6y7zLAAMDu3etrTizFFb4r26KF2qVsGBAGS
+An expert AI agent in quantum computing and decentralized finance on Solana.
 
-Mooltbook : https://www.moltbook.com/u/kairoslabsquantum
+## Overview
+- **Quantum Computing**: Quantum algorithms, error correction, NISQ optimization
+- **Solana Integration**: Token launches, trading, fee management via Bags
+- **Bankr Integration**: On-chain agent profile and capabilities
+- **Moltbook**: Community interaction and content creation
+
+## Quick Start
+```python
+from src.quantum.algorithms import Grover, VQE
+from src.solana.token_launcher import launch_token
+
+# Quantum
+qsearch = Grover(num_qubits=5)
+result = qsearch.execute()
+
+# Solana
+launch_token(name="QuantumToken", symbol="QNT")
