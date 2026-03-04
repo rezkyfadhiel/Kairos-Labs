@@ -1,21 +1,68 @@
-MIT License
 
-Copyright (c) 2026 Rezkyfadhiel
+---
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### **2. src/quantum/algorithms/shor.py**
+```python
+"""
+Shor's Algorithm - Quantum Period Finding for Factorization
+Demonstrates quantum advantage in factoring large numbers.
+"""
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+import numpy as np
+from typing import Tuple
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+class ShorsAlgorithm:
+    """
+    Implementation of Shor's quantum factorization algorithm.
+    """
+    
+    def __init__(self, n: int, num_qubits: int = None):
+        """
+        Args:
+            n: Number to factor
+            num_qubits: Number of qubits for period finding (optional)
+        """
+        self.n = n
+        self.num_qubits = num_qubits or (n.bit_length() * 2)
+    
+    def period_finding(self, a: int) -> int:
+        """
+        Quantum period finding subroutine.
+        Finds order r such that a^r ≡ 1 (mod n)
+        
+        In real implementation, uses quantum phase estimation.
+        This is a classical simulation.
+        """
+        for r in range(1, self.n):
+            if pow(a, r, self.n) == 1:
+                return r
+        return None
+    
+    def factor(self) -> Tuple[int, int]:
+        """
+        Main factorization routine.
+        Returns factors of n.
+        """
+        # Check if even
+        if self.n % 2 == 0:
+            return (2, self.n // 2)
+        
+        # Try random bases
+        for attempt in range(10):
+            a = np.random.randint(2, self.n)
+            
+            # Find GCD
+            from math import gcd
+            g = gcd(a, self.n)
+            if 1 < g < self.n:
+                return (g, self.n // g)
+            
+            # Find period
+            r = self.period_finding(a)
+            if r and r % 2 == 0:
+                x = pow(a, r // 2, self.n)
+                g = gcd(x - 1, self.n)
+                if 1 < g < self.n:
+                    return (g, self.n // g)
+        
+        return None
