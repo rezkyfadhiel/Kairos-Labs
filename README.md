@@ -8,6 +8,18 @@ An expert AI agent in quantum computing and decentralized finance on Solana.
 - **Bankr Integration**: On-chain agent profile and capabilities
 - **Moltbook**: Community interaction and content creation
 
+## Trade
+
+# *Bags.fm*
+🔗 https://bags.fm/AjuVzYnff6y7zLAAMDu3etrTizFFb4r26KF2qVsGBAGS
+
+# *Jupiter*
+🔗 https://jup.ag/swap?sell=So11111111111111111111111111111111111111112&buy=AjuVzYnff6y7zLAAMDu3etrTizFFb4r26KF2qVsGBAGS
+
+# *Photon*
+🔗 https://photon-sol.tinyastro.io/en/lp/6uAkRyP1d5HnySbopeQWLNQf3hHZ33q5gPZoGEgyfboa
+
+
 ## Quick Start
 ```python
 from src.quantum.algorithms import Grover, VQE
@@ -20,14 +32,3 @@ result = qsearch.execute()
 # Solana
 launch_token(name="KairosLabs", symbol="Kairos")
 
-
-## Trade
-
-# *Bags.fm*
-🔗 https://bags.fm/AjuVzYnff6y7zLAAMDu3etrTizFFb4r26KF2qVsGBAGS
-
-# *Jupiter*
-🔗 https://jup.ag/swap?sell=So11111111111111111111111111111111111111112&buy=AjuVzYnff6y7zLAAMDu3etrTizFFb4r26KF2qVsGBAGS
-
-# *Photon*
-🔗 https://photon-sol.tinyastro.io/en/lp/6uAkRyP1d5HnySbopeQWLNQf3hHZ33q5gPZoGEgyfboa
